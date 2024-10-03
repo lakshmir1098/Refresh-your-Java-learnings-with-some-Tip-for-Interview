@@ -25,3 +25,5 @@
 
 8. [ convert set of String to set of Integer](https://github.com/lakshmir1098/Refresh-your-Java-learnings-with-some-Tip-for-Interview/blob/master/conversion.md#08-convert-set-of-string-to-set-of-integer)
 
+9. [convert int/number into int array](https://github.com/lakshmir1098/Refresh-your-Java-learnings-with-some-Tip-for-Interview/blob/master/conversion.md#09-convert-intnumber-into-int-array)
+
