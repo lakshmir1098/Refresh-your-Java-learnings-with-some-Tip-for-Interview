@@ -75,5 +75,12 @@ Set<Integer> setOfInteger = setOfString.stream()
 					.map(s -> Integer.parseInt(s)) 
 					.collect(Collectors.toSet()); 
 ```
+
+### 09 convert int/number into int array
+```java
+int arr[] =  Arrays.stream(String.valueOf(1223).split("")) 
+                     .mapToInt(Integer::parseInt) 
+                     .toArray();
+```
 								
  
