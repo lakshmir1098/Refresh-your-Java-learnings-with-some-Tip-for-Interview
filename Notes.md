@@ -69,10 +69,13 @@ HashMap is a part of Java’s collection.t allows to store the null keys as well
  `hm.remove(4);`
 
 4. Traversal
-```java
-for (Map.Entry<String, Integer> e : map.entrySet())
-    System.out.println("Key: " + e.getKey() + " Value: " + e.getValue()); 
-```
+    ```java
+    for (Map.Entry<String, Integer> e : map.entrySet())
+        System.out.println("Key: " + e.getKey() + " Value: " + e.getValue()); 
+    ```
+5. In `HashMap` we use  `hm.getOrDefault(arr[i], 0)` when you want to retrieve the current count and `hm.getOrDefault(arr[i], 0) + 1` when you want to increment that count.
+
+6. `hm.put(arr[i], count + 1)` to update the count.Provided, `count` is a pre-calculated value
 
 ## 03 ConcurrentHashMap
 Same as HashMap but with some additional features such as such as `putIfAbsent()`, `replace()` and different way of traversing. Unliks `HashMap` it doesn't allow null kay and value
@@ -82,47 +85,67 @@ Same as HashMap but with some additional features such as such as `putIfAbsent()
 
 1. `map.get(key)` to get the value for the provided key
 2. putIfAbsent()
-```java
-ConcurrentHashMap<Integer, String> m
-            = new ConcurrentHashMap<>();
- 
-        // Insert mappings using
-        // put method
-        m.put(100, "Hello");
-        m.put(101, "Geeks");
-        m.put(102, "Geeks");
- 
-        // Here we cant add Hello because 101 key
-        // is already present in ConcurrentHashMap object
-        m.putIfAbsent(101, "Hello");
- 
-        // We can remove entry because 101 key
-        // is associated with For value
-        m.remove(101, "Geeks");
- 
-        // Now we can add Hello
-        m.putIfAbsent(103, "Hello");
-```
+    ```java
+    ConcurrentHashMap<Integer, String> m
+                = new ConcurrentHashMap<>();
+    
+            // Insert mappings using
+            // put method
+            m.put(100, "Hello");
+            m.put(101, "Geeks");
+            m.put(102, "Geeks");
+    
+            // Here we cant add Hello because 101 key
+            // is already present in ConcurrentHashMap object
+            m.putIfAbsent(101, "Hello");
+    
+            // We can remove entry because 101 key
+            // is associated with For value
+            m.remove(101, "Geeks");
+    
+            // Now we can add Hello
+            m.putIfAbsent(103, "Hello");
+    ```
 3. `chmp2.putAll(chmp1)` to copy all keys and avlues from one ConcurrentHashMap to another.
 
 4. Traversal
-```java
-ConcurrentHashMap<Integer, String> chmap
-            = new ConcurrentHashMap<Integer, String>();
-// Create an Iterator over the
-        // ConcurrentHashMap
-Iterator<ConcurrentHashMap.Entry<Integer, String> >
-    itr = chmap.entrySet().iterator();
+    ```java
+    ConcurrentHashMap<Integer, String> chmap
+                = new ConcurrentHashMap<Integer, String>();
+    // Create an Iterator over the
+            // ConcurrentHashMap
+    Iterator<ConcurrentHashMap.Entry<Integer, String> >
+        itr = chmap.entrySet().iterator();
 
-// The hasNext() method is used to check if there is
-// a next element The next() method is used to
-// retrieve the next element
-while (itr.hasNext()) {
-    ConcurrentHashMap.Entry<Integer, String> entry
-        = itr.next();
-    System.out.println("Key = " + entry.getKey()
-                        + ", Value = "
-                        + entry.getValue());
-}
-```
-## 04 
+    // The hasNext() method is used to check if there is
+    // a next element The next() method is used to
+    // retrieve the next element
+    while (itr.hasNext()) {
+        ConcurrentHashMap.Entry<Integer, String> entry
+            = itr.next();
+        System.out.println("Key = " + entry.getKey()
+                            + ", Value = "
+                            + entry.getValue());
+    }
+    ```
+## 04 Priority Queue
+Part of the Queue family from *java.util package* that extends Collections. The elements are processed in the First In First Out (FIFO) manner. PQ is  not thread safe. If it is required to have a thread safe implementation, **PriorityBlockingQueue** is an available option.
+
+The elements in PriorityQueue must be of Comparable type. String and Wrapper classes are Comparable by default. To add user-defined objects in PriorityQueue, you need to implement Comparable interface.
+
+1. New PriorityQueue object
+    ```java
+    PriorityQueue<String> queue=new PriorityQueue<String>(); 
+    ```
+2. Queue Methods:
+
+    * **add()** - to insert the specified element into the queue and return true upon success.
+    * **offer()** - to insert the specified element into the queue.
+    * **remove()** - to retrieves and removes the head of the queue.
+    * **poll()** - to retrieves and removes the head of this queue, or returns null if this queue is empty.
+    * **peek()** - retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+    * **element()** - retrieves, but does not remove, the head of this queue.
+
+
+
+

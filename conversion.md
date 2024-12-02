@@ -82,5 +82,23 @@ int arr[] =  Arrays.stream(String.valueOf(1223).split(""))
                      .mapToInt(Integer::parseInt) 
                      .toArray();
 ```
+
+### 10 conver int/number into integer list
+```java
+List<Integer> intNums = Arrays.stream(stringNum)
+                                .map(Integer::parseInt)
+                                .collect(Collectors.toList());
+```
+> !NOTE
+>we used `map` and not `mapToInt` 
+>`map(Integer::parseInt)` returns a `Stream<Integer>`, not an `IntStream`.
+>
+>`mapToInt` returns `IntStream`. But `IntStream` doesn't have a `collect()` method that accepts a Collector and thus `IntStream` cannot use `collect(Collectors.toList())`.
+>
+still to use collector for `mapToInt`  
+```java
+List<Integer> intNums = Arrays.stream(stringNum)
+      .mapToInt(Integer::parseInt)
+       .collect(ArrayList::new,ArrayList::add,ArrayList::addAll);```
 								
  
